@@ -33,6 +33,16 @@ func main() {
 	et, _ := creational.GetLocomotive("Electric train")
 	fmt.Println(et)
 
+	// structural example - Decorator
+	basicKnowledge := &structural.BasicKnowledge{}
+	humanKnowledge := &structural.HumanKnowledge{
+		Education: basicKnowledge,
+	}
+	humanTechKnowledge := &structural.HumanTechKnowledge{
+		Education: humanKnowledge,
+	}
+	fmt.Println("Total number of teaching hours for humanities and technical education is ", humanTechKnowledge.GetHours())
+
 	// structural example
 	// House cleaning
 	// The user can use the vacuum cleaner to clean
