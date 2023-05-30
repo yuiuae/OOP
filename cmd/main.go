@@ -1,14 +1,15 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/yuiuae/OOP/behavioral"
+	"github.com/yuiuae/OOP/creational"
 	"github.com/yuiuae/OOP/structural"
 )
 
-// import "github.com/yuiuae/OOP/creational"
-
 func main() {
-	// behavioral example
+	// behavioral example - Command
 	pool := &behavioral.Pool{}
 	addCommand := &behavioral.AddWaterCommand{
 		Tank: pool,
@@ -25,6 +26,12 @@ func main() {
 		TankCommand: pourCommand,
 	}
 	pourLever.Push()
+
+	// creational example - 	Factory Method
+	sl, _ := creational.GetLocomotive("Steam locomotive")
+	fmt.Println((sl))
+	et, _ := creational.GetLocomotive("Electric train")
+	fmt.Println(et)
 
 	// structural example
 	// House cleaning
