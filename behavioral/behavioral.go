@@ -3,11 +3,11 @@ package behavioral
 import "fmt"
 
 type Lever struct {
-	command Command
+	TankCommand Command
 }
 
-func (l *Lever) push() {
-	l.command.execute()
+func (l *Lever) Push() {
+	l.TankCommand.execute()
 }
 
 type Command interface {
@@ -15,22 +15,22 @@ type Command interface {
 }
 
 type AddWaterCommand struct {
-	tank Tank
+	Tank WaterTank
 }
 
 func (c *AddWaterCommand) execute() {
-	c.tank.add()
+	c.Tank.add()
 }
 
 type PoreAllWaterCommand struct {
-	tank Tank
+	Tank WaterTank
 }
 
 func (c *PoreAllWaterCommand) execute() {
-	c.tank.pour()
+	c.Tank.pour()
 }
 
-type Tank interface {
+type WaterTank interface {
 	add()
 	pour()
 }

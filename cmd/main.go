@@ -11,20 +11,20 @@ func main() {
 	// behavioral example
 	pool := &behavioral.Pool{}
 	addCommand := &behavioral.AddWaterCommand{
-		tank: pool,
+		Tank: pool,
 	}
 	pourCommand := &behavioral.PoreAllWaterCommand{
-		tank: pool,
+		Tank: pool,
 	}
 	addLever := &behavioral.Lever{
-		command: behavioral.AddWaterCommand,
+		TankCommand: addCommand,
 	}
-	addLever.push()
+	addLever.Push()
 
 	pourLever := &behavioral.Lever{
-		command: behavioral.PoreAllWaterCommand,
+		TankCommand: pourCommand,
 	}
-	pourLever.push()
+	pourLever.Push()
 
 	// structural example
 	// House cleaning
