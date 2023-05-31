@@ -29,9 +29,21 @@ func main() {
 
 	// creational example - 	Factory Method
 	sl, _ := creational.GetLocomotive("Steam locomotive")
-	fmt.Println((sl))
+	fmt.Println((sl.GetClass()))
 	et, _ := creational.GetLocomotive("Electric train")
-	fmt.Println(et)
+	fmt.Println(et.GetClass())
+
+	// creational example - 	Builder
+	passangerBuilder := creational.GetBuilder("passenger")
+	sportBuilder := creational.GetBuilder("sport")
+
+	director := creational.NewDirector(passangerBuilder)
+	passangerCar := director.BuildCar()
+	fmt.Printf("Body type = %s, engine type = %s, tire type = %s\n", passangerCar.CarBodyType, passangerCar.EngineType, passangerCar.TireType)
+
+	director.SetBuilder(sportBuilder)
+	sportCar := director.BuildCar()
+	fmt.Printf("Body type = %s, engine type = %s, tire type = %s", sportCar.CarBodyType, sportCar.EngineType, sportCar.TireType)
 
 	// structural example - Decorator
 	basicKnowledge := &structural.BasicKnowledge{}

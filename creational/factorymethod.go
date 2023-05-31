@@ -5,8 +5,8 @@ import "fmt"
 type ILocomotive interface {
 	setClass(class string)
 	setFuelTyoe(fuelType string)
-	getClass() string
-	getFuelType() string
+	GetClass() string
+	GetFuelType() string
 }
 type Locomotive struct {
 	class    string
@@ -19,10 +19,10 @@ func (l *Locomotive) setClass(class string) {
 func (l *Locomotive) setFuelTyoe(fuel string) {
 	l.fuelType = fuel
 }
-func (l *Locomotive) getClass() string {
+func (l *Locomotive) GetClass() string {
 	return l.class
 }
-func (l *Locomotive) getFuelType() string {
+func (l *Locomotive) GetFuelType() string {
 	return l.fuelType
 }
 
